@@ -89,6 +89,62 @@ const projects = [
     ],
     github: "https://github.com/rakshaanagendra/agent-chaos-mesh",
   },
+  {
+    id: "financial-recon-mesh",
+    title: "Financial Reconciliation Mesh",
+    tagline:
+      "Three mutually distrusting ledgers, one autonomous clearinghouse: detect drift, investigate root cause, correct it, and prove convergence — or escalate.",
+    highlights: [
+      "Three independently simulated ledgers (internal orders, Stripe webhooks, bank clearing) are streamed as MCP tools; a delta-matrix anomaly detector diffs them per-transaction in real time for amount, status, presence, duplicate, sequence, and timing drift.",
+      "A per-stream 'matching window' (Stripe 4s, bank 8s) defers comparisons while a leg is still within its SLA, avoiding false-positive drift flags from ordinary delivery latency.",
+      "A LangGraph settlement clearinghouse (isolate → investigate → adjudicate → settle → verify) applies an explicit, documented business-rule book to assign a diagnosis, source of truth, and confidence score, then books programmatic correction entries back through MCP.",
+      "Confidence-gated escalation — rulings below 0.6 confidence go to manual review instead of auto-correcting — plus repeat-offender merchant flagging when correction frequency spikes within a rolling window.",
+      "A live FastAPI + WebSocket dashboard renders a three-column ledger grid that flashes red on drift and pulses green on repair, an SVG matching map, and trend/diagnosis charts; validated by 56 automated tests including a full headless end-to-end run.",
+    ],
+    tech: [
+      "LangGraph",
+      "MCP",
+      "FastAPI",
+      "WebSockets",
+      "Pydantic",
+      "Decimal-Safe Money Handling",
+      "Pytest",
+    ],
+    metrics: [
+      { label: "Discrepancy Scenarios", value: "8" },
+      { label: "Tests Passing", value: "56 / 56" },
+      { label: "Sample Run Escalations", value: "0 of 39 flagged" },
+    ],
+    github: "https://github.com/rakshaanagendra/financial-recon-mesh",
+  },
+  {
+    id: "agent-logistics-mesh",
+    title: "Agent Logistics Mesh",
+    tagline:
+      "An autonomous fleet manager wired to a live spatial simulation entirely through MCP — isolate failing vehicles, reroute, and re-optimize before an SLA breaches.",
+    highlights: [
+      "A mixed delivery fleet (cargo bikes, EV vans, box trucks) and live delivery demand on a 100×100 grid are exposed as 13 formally schema-validated MCP tools — every read and mutation goes through real JSON-RPC 2.0, never touching the simulator directly.",
+      "A 5-node cyclic LangGraph orchestrator (ingest → isolate faults → dispatch → optimize routes ⟲ → verify SLA) acts as the fleet manager: isolates energy-critical or delayed vehicles, finds backup assignments, and iteratively re-sequences stops.",
+      "A pure-function routing interceptor computes utilization, routing efficiency, ETA drift, and SLA state (ok / at_risk / breach_imminent / breached) every tick, and emits fault signals that trigger dispatch cycles automatically.",
+      "Automatic and manual disruption injection (traffic bottlenecks, battery drops, express-demand surges) exercises the recovery loop end-to-end, with fault-to-reassignment latency tracked on every reroute.",
+      "A compiled JSON-schema validator (fastjsonschema) cuts MCP protocol-validation overhead roughly 20×, and a real-time canvas dashboard visualizes the live network map, the LangGraph pipeline, and raw JSON-RPC wire traffic.",
+    ],
+    tech: [
+      "LangGraph",
+      "MCP",
+      "FastAPI",
+      "WebSockets",
+      "Pydantic",
+      "fastjsonschema",
+      "Pytest",
+    ],
+    metrics: [
+      { label: "MCP Tools", value: "13" },
+      { label: "Validation Speedup", value: "~20×" },
+      { label: "Avg Dispatch Cycle", value: "~20ms" },
+    ],
+    github: "https://github.com/rakshaanagendra/agent-logistics-mesh",
+  },
 ];
 
 export default projects;

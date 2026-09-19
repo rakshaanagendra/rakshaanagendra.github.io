@@ -1,7 +1,7 @@
 import Reveal from "./Reveal.jsx";
 
 const STATS = [
-  { value: "3", label: "production-grade AI systems shipped" },
+  { value: "5", label: "production-grade AI systems shipped" },
   { value: "100%", label: "OOD detection accuracy (52/52 queries)" },
   { value: "92.9%", label: "critic-eval agreement with human labels" },
   { value: "4", label: "independent evaluation harnesses built" },
