@@ -31,7 +31,7 @@ const projects = [
       { label: "Retry Effectiveness", value: "+66%" },
       { label: "Critic Agreement", value: "92.9%" },
     ],
-    github: "https://github.com/rakshaanagendra/Production-RAG-MultiAgentSystem",
+    github: "https://github.com/rakshaanagendra/Production-RAG-MultiAgent-System",
   },
   {
     id: "ai-redteam-harness",
